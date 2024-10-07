@@ -466,6 +466,7 @@ p {
   margin: 0;
 }
 .sec-four-feature-list {
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 360px;
   position: relative;
   overflow: hidden;
@@ -475,32 +476,31 @@ p {
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
   cursor: pointer;
+  transform: translateY(0%);
 }
-.overlay {
-  position: absolute; /* Абсолютне позиціонування для оверлею */
-  bottom: -100%; /* Сховати оверлей за межами елемента */
-  left: 0;
-  right: 0;
-  margin-bottom: 121px;
-  width: 360px;
-  height: 300px;
-  background-color: #4d5ae5; /* Синій фон оверлею */
-  color: white; /* Білий колір тексту */
-  padding: 16px; /* Внутрішній відступ */
-  transition: bottom 0.3s ease; /* Анімація появи оверлею */
+.img-overlay {
+  position: relative;
+  overflow: hidden; 
 }
 .text-overlay {
+  position: absolute;
+  top: 0;
   padding: 40px 32px;
   margin: 0;
   font-weight: 400;
   font-size: 16px;
-  line-height: 150%;
+  line-height: 1.5; 
   letter-spacing: 0.02em;
   color: #f4f4fd;
+  background-color: #4d5ae5; 
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sec-four-feature-list:hover .overlay {
-  bottom: 0; /* Виводимо оверлей в межі елемента */
+.sec-four-feature-list:hover .text-overlay {
+  transform: translateY(0%);
 }
 .section-footer {
   position: relative;
