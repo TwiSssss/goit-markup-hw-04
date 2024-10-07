@@ -47,6 +47,7 @@ nav {
 
 .container-nv a::after {
   content: "";
+  width: 100%;
   position: absolute;
   bottom: -1px;
   left: 0;
@@ -174,12 +175,12 @@ p {
   color: #434455;
 }
 .section-one {
-  
+  margin: 0 auto;
   max-width: 1440px;
   background-repeat: no-repeat; 
   background-position: center; 
   background-size: cover;
-   position: relative;
+  position: relative;
   background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/img-name.jpg); 
   padding: 188px 0;
   display: flex;
