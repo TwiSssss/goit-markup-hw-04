@@ -541,6 +541,9 @@ p {
   width: 208px;
   height: 80px;
 }
+.container-second p{
+  margin-bottom: 16px;
+}
 .footer-paragraph-second {
     font-weight: 500;
   font-size: 16px;
