@@ -31,6 +31,40 @@ nav {
   display: flex;
   align-items: center;
 }
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.container-nv a {
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.container-nv a::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 4px;
+  background: #404bbf;
+  border-radius: 2px;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.container-nv a.active {
+  color: #404bbf;
+}
+
+.container-nv a.active::after {
+  opacity: 1;
+}
+
 .header-one {
   height: 72px;
   display: flex;
@@ -64,6 +98,7 @@ nav {
 .header-item:focus {
   color: #404bbf;
 }
+
 .header-item {
   padding: 24px 0;
   color: #2e2f42;
@@ -74,10 +109,7 @@ nav {
 .header-item:hover {
   color: #404bbf;
 }
-.header-item:active {
-  color: #404bbf;
-  text-decoration: underline;
-}
+
 address {
   font-style: normal;
 }
@@ -140,13 +172,34 @@ p {
   color: #434455;
 }
 .section-one {
+  position: relative;
+  background-image: url(../images/hero_image.png);
   padding: 188px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   height: 600px;
-  background: #2e2f42;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.section-one::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(46, 47, 66, 0.7);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.section-one * {
+  position: relative;
+  z-index: 2;
 }
 
 .section-one-title {
@@ -185,6 +238,128 @@ p {
   color: #fff;
   font-weight: 500;
   font-size: 16px;
+}
+
+.icon {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(../images/sprite.svg);
+}
+.icon-antenna-1 {
+  width: 32px;
+  height: 32px;
+  background-position: 0 0;
+  transform: scale(2);
+  transform-origin: center;
+}
+.icon-astronaut-1 {
+  width: 32px;
+  height: 32px;
+  background-position: -48px 0;
+  transform: scale(2);
+  transform-origin: center;
+}
+.icon-clock-1 {
+  width: 32px;
+  height: 32px;
+  background-position: -96px 0;
+  transform: scale(2);
+  transform-origin: center;
+}
+.icon-diagram-1 {
+  width: 32px;
+  height: 32px;
+  background-position: -144px 0;
+  transform: scale(2);
+  transform-origin: center;
+}
+.icon-facebook-1 {
+  width: 32px;
+  height: 32px;
+  background-position: -192px 0;
+  transform: scale(0.5);
+  transform-origin: center;
+}
+.icon-instagram-2 {
+  width: 32px;
+  height: 32px;
+  background-position: -240px 0;
+  transform: scale(0.5);
+  transform-origin: center;
+}
+.icon-linkedin-1 {
+  width: 32px;
+  height: 32px;
+  background-position: -288px 0;
+  transform: scale(0.5);
+  transform-origin: center;
+}
+.icon-twitter-1 {
+  width: 32px;
+  height: 32px;
+  background-position: -336px 0;
+  transform: scale(0.5);
+  transform-origin: center;
+}
+.icon-facebook-3 {
+  width: 32px;
+  height: 32px;
+  background-position: -192px 0;
+  transform: scale(0.75);
+  transform-origin: center;
+}
+.icon-instagram-3 {
+  width: 32px;
+  height: 32px;
+  background-position: -240px 0;
+  transform: scale(0.75);
+  transform-origin: center;
+}
+.icon-linkedin-3 {
+  width: 32px;
+  height: 32px;
+  background-position: -288px 0;
+  transform: scale(0.75);
+  transform-origin: center;
+}
+.icon-twitter-3 {
+  width: 32px;
+  height: 32px;
+  background-position: -336px 0;
+  transform: scale(0.75);
+  transform-origin: center;
+}
+.section-three-icon {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.section-three-icon-list {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+}
+.section-three-icon-list:hover {
+  background-color: #404bbf;
+}
+.sec-two-icon {
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  background: #f4f4fd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
 }
 .section-two {
   padding: 120px 0px;
@@ -245,7 +420,7 @@ p {
   border-radius: 0 0 4px 4px;
   padding: 0px 0px 32px 0px;
   width: 264px;
-  height: 380px;
+  height: 428px;
 }
 
 .role-and-name {
@@ -291,11 +466,43 @@ p {
 }
 .sec-four-feature-list {
   width: 360px;
-
+  position: relative;
+  overflow: hidden;
   background: #fff;
 }
+.sec-four-feature-list:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+  cursor: pointer;
+}
+.overlay {
+  position: absolute; /* Абсолютне позиціонування для оверлею */
+  bottom: -100%; /* Сховати оверлей за межами елемента */
+  left: 0;
+  right: 0;
+  margin-bottom: 121px;
+  width: 360px;
+  height: 300px;
+  background-color: #4d5ae5; /* Синій фон оверлею */
+  color: white; /* Білий колір тексту */
+  padding: 16px; /* Внутрішній відступ */
+  transition: bottom 0.3s ease; /* Анімація появи оверлею */
+}
+.text-overlay {
+  padding: 40px 32px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+}
 
+.sec-four-feature-list:hover .overlay {
+  bottom: 0; /* Виводимо оверлей в межі елемента */
+}
 .section-footer {
+  position: relative;
   padding: 100px 0;
   height: 312px;
   background: #2e2f42;
@@ -321,4 +528,45 @@ p {
 }
 .logo-second-footer {
   color: #f4f4fd;
+}
+.container-footer {
+  display: flex;
+  align-items: flex-start;
+}
+.container-second {
+  width: 208px;
+  height: 80px;
+  margin-left: 120px;
+}
+.footer-paragraph-second {
+  margin: 0;
+  padding: 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0.02em;
+  color: #fff;
+}
+
+.section-four-icon {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+}
+
+.section-four-icon-list {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+}
+
+.section-four-icon-list:hover {
+  background-color: #31d0aa;
 }
